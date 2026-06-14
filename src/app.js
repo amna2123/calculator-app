@@ -145,6 +145,7 @@ function appendPercent() {
         currentInput = formatResult((parseFloat(previousInput) * val) / 100);
     } else {
         currentInput = formatResult(val / 100);
+        shouldResetScreen = true;
     }
     updateDisplay();
 }
