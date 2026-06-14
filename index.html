@@ -3,15 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Scientific Calculator</title>
     <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-    <div class="calculator">
+    <div class="calculator" id="calculator">
         <div class="display">
+            <div class="display-top">
+                <button class="btn-mode" onclick="toggleMode()" id="modeBtn">Scientific</button>
+                <div class="indicators">
+                    <span class="indicator mem-indicator" id="memIndicator">M</span>
+                    <span class="indicator angle-indicator" id="angleMode" onclick="toggleAngle()">DEG</span>
+                </div>
+            </div>
             <div class="expression" id="expression"></div>
             <input type="text" id="result" value="0" readonly>
         </div>
+
+        <div class="sci-buttons" id="sciButtons">
+            <button class="btn-sci" onclick="applyFunc('sin')">sin</button>
+            <button class="btn-sci" onclick="applyFunc('cos')">cos</button>
+            <button class="btn-sci" onclick="applyFunc('tan')">tan</button>
+            <button class="btn-sci btn-const" onclick="insertConst('π')">π</button>
+
+            <button class="btn-sci" onclick="applyFunc('asin')">sin⁻¹</button>
+            <button class="btn-sci" onclick="applyFunc('acos')">cos⁻¹</button>
+            <button class="btn-sci" onclick="applyFunc('atan')">tan⁻¹</button>
+            <button class="btn-sci btn-const" onclick="insertConst('e')">e</button>
+
+            <button class="btn-sci" onclick="applyFunc('log')">log</button>
+            <button class="btn-sci" onclick="applyFunc('ln')">ln</button>
+            <button class="btn-sci" onclick="applyFunc('sqrt')">√</button>
+            <button class="btn-sci" onclick="applyFunc('x2')">x²</button>
+
+            <button class="btn-sci" onclick="applyFunc('10x')">10ˣ</button>
+            <button class="btn-sci" onclick="applyFunc('ex')">eˣ</button>
+            <button class="btn-sci btn-sci-op" onclick="appendOperator('^')">xʸ</button>
+            <button class="btn-sci" onclick="applyFunc('fact')">n!</button>
+
+            <button class="btn-mem" onclick="memClear()">MC</button>
+            <button class="btn-mem" onclick="memRecall()">MR</button>
+            <button class="btn-mem" onclick="memAdd()">M+</button>
+            <button class="btn-mem" onclick="memSub()">M−</button>
+        </div>
+
         <div class="buttons">
             <button class="btn-func" onclick="clearAll()">AC</button>
             <button class="btn-func" onclick="toggleSign()">±</button>
@@ -37,7 +72,7 @@
             <button class="btn-number" onclick="appendDot()">.</button>
             <button class="btn-equals" onclick="calculate()">=</button>
         </div>
-        <div class="footer">Calculator</div>
+        <div class="footer">Scientific Calculator</div>
     </div>
 
     <script src="src/app.js"></script>

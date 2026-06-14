@@ -21,12 +21,77 @@ body {
     width: 320px;
 }
 
+/* --- Display --- */
+
 .display {
     background: #1a1a1a;
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 16px 20px 20px;
+    margin-bottom: 16px;
     text-align: right;
+}
+
+.display-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.btn-mode {
+    background: #2a2a2a;
+    color: #888;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border: 1px solid #383838;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    letter-spacing: 0.03em;
+}
+
+.btn-mode:hover {
+    background: #333;
+    color: #bbb;
+}
+
+.indicators {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.indicator {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.mem-indicator {
+    color: #c084fc;
+    transition: opacity 0.2s;
+}
+
+.angle-indicator {
+    color: #ff9500;
+    cursor: pointer;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: #2a2a2a;
+    transition: background 0.15s;
+    user-select: none;
+}
+
+.angle-indicator:hover {
+    background: #333;
+}
+
+.display .expression {
+    color: #666;
+    font-size: 0.9rem;
+    min-height: 22px;
+    word-break: break-all;
 }
 
 .display input {
@@ -34,18 +99,69 @@ body {
     background: none;
     border: none;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: 300;
     outline: none;
     text-align: right;
 }
 
-.display .expression {
-    color: #888;
-    font-size: 1rem;
-    min-height: 24px;
-    word-break: break-all;
+/* --- Scientific panel --- */
+
+.sci-buttons {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #2e2e2e;
 }
+
+.sci-buttons.visible {
+    display: grid;
+}
+
+.btn-sci {
+    background: #173045;
+    color: #7ec8e3;
+    font-size: 0.82rem;
+    padding: 13px 6px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-weight: 600;
+}
+
+.btn-sci:hover  { background: #1e3f5c; }
+.btn-sci:active { transform: scale(0.92); }
+
+.btn-sci.btn-const {
+    color: #ffd166;
+}
+
+.btn-sci.btn-sci-op {
+    background: #4a2800;
+    color: #ffb347;
+}
+
+.btn-sci.btn-sci-op:hover { background: #6a3800; }
+
+.btn-mem {
+    background: #2e1a45;
+    color: #c084fc;
+    font-size: 0.82rem;
+    padding: 13px 6px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-weight: 600;
+}
+
+.btn-mem:hover  { background: #3d2460; }
+.btn-mem:active { transform: scale(0.92); }
+
+/* --- Standard buttons --- */
 
 .buttons {
     display: grid;
@@ -63,62 +179,26 @@ button {
     font-weight: 600;
 }
 
-button:active {
-    transform: scale(0.92);
-}
+button:active { transform: scale(0.92); }
 
-.btn-number {
-    background: #333;
-    color: #fff;
-}
+.btn-number       { background: #333; color: #fff; }
+.btn-number:hover { background: #3d3d3d; }
 
-.btn-number:hover {
-    background: #3d3d3d;
-}
+.btn-operator       { background: #ff9500; color: #fff; }
+.btn-operator:hover { background: #ffaa2a; }
 
-.btn-operator {
-    background: #ff9500;
-    color: #fff;
-}
+.btn-equals       { background: #ff9500; color: #fff; }
+.btn-equals:hover { background: #ffaa2a; }
 
-.btn-operator:hover {
-    background: #ffaa2a;
-}
+.btn-func       { background: #a5a5a5; color: #000; }
+.btn-func:hover { background: #b5b5b5; }
 
-.btn-equals {
-    background: #ff9500;
-    color: #fff;
-}
-
-.btn-equals:hover {
-    background: #ffaa2a;
-}
-
-.btn-clear {
-    background: #a5a5a5;
-    color: #000;
-}
-
-.btn-clear:hover {
-    background: #b5b5b5;
-}
-
-.btn-func {
-    background: #a5a5a5;
-    color: #000;
-}
-
-.btn-func:hover {
-    background: #b5b5b5;
-}
-
-.span-two {
-    grid-column: span 2;
-}
+.span-two { grid-column: span 2; }
 
 .footer {
     text-align: center;
-    margin-top: 20px;
-    color: #555;
-    font-size: 0.8rem;
+    margin-top: 18px;
+    color: #444;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
 }
